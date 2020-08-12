@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the vue</title>
+</head>
+<body>
+
+<div id="root">
+    <p>use computed to do minimal logic stuff before showing something</p>
+    <p>here incompleted tasks are filtered in todo list</p>
+    <p>this is also done using v-if (but computed method might be cleaner)</p>
+    <p>consider that computed data is cached until changes in main data (tasks) occures</p>
+    <h1 >{{ reversedMessage }}</h1>
+
+    <h2>all tasks</h2>
+    <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+    <h2>to do</h2>
+    <ul>
+        <li v-for="task in incompletedTasks" v-text="task.description"></li>
+    </ul>
+</div>
+
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                message: 'Hello world!',
+                tasks: [
+                    { description: 'Go to the store', completed: true },
+                    { description: 'Finish screencast', completed: false },
+                    { description: 'Make donation', completed: false },
+                    { description: 'Clear inbox', completed: false },
+                    { description: 'Make dinner', completed: false },
+                    { description: 'Clean room', completed: true }
+                ]
+            },
+            computed: {
+                reversedMessage(){
+                    return this.message.split('').reverse().join('');
+                },
+                incompletedTasks(){
+                    return this.tasks.filter(task => !task.completed)
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
