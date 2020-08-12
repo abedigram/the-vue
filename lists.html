@@ -11,6 +11,9 @@
     <p>use v-text for binding value like {{}}</p>
     <p>list items could be changed using dev tools with 'app' element</p>
 
+    <input type="text" v-model="newName">
+    <button @click="addName">add to list</button>
+    <!-- <button v-on:click="addName">add to list</button> -->
     <ul>
         <li v-for="name in names" v-text="name"></li>
     </ul>
@@ -21,7 +24,13 @@
         let app = new Vue({
             el: '#root',
             data: {
+                newName: '',
                 names: ['lara','hana','dora','mana']
+            },
+            methods: {
+                addName() {
+                    this.names.push(this.newName);
+                }
             }
         })
     </script>
