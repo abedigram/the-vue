@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the vue</title>
+</head>
+<style>
+    .blue {
+        color: blue;
+    }
+</style>
+<body>
+
+<div id="root">
+    <p>use ':' or v-bind for attribute binding</p>
+    <p>calss binding is done using : and also usign object for conditional classes</p>
+
+    <button v-bind:title="title" @click="toggleColor">hover me!</button>
+    <h1 :class="{ 'blue': isBlue }">colored</h1>
+</div>
+
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                title: 'button is being hovered',
+                isBlue: true
+            },
+            methods: {
+                toggleColor(){
+                    this.isBlue = !this.isBlue;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
