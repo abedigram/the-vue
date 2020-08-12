@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>the vue</title>
+</head>
+<body>
+
+<div id="root">
+    <p>using v-for to render a list</p>
+    <p>use v-text for binding value like {{}}</p>
+    <p>list items could be changed using dev tools with 'app' element</p>
+
+    <ul>
+        <li v-for="name in names" v-text="name"></li>
+    </ul>
+</div>
+
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                names: ['lara','hana','dora','mana']
+            }
+        })
+    </script>
+</body>
+</html>
