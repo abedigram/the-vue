@@ -5,7 +5,34 @@
     <title>the vue</title>
 </head>
 <body>
-    
-<script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+
+<div id="root">
+    <p>
+        importing vue source using unpkg cdn
+    </p>
+    <p>
+        creating 'Vue' instance refering the root element (root element should not be the body tag)
+    </p>
+    <p>
+        using v-model for 2-way binding
+    </p>
+    <p>
+        data is updated on inpu value change
+    </p>
+
+    <input type="text" id="input" v-model="message">
+
+    <p>the input value is {{ message }}</p>
+</div>
+
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: '#root',
+            data: {
+                message: 'hello world'
+            }
+        })
+    </script>
 </body>
 </html>
